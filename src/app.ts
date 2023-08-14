@@ -11,7 +11,12 @@ app.use(cors())
 app.get('/status',(req,res)=>{
     res.send({
       message:'STATUS RESPONS'
+    })
+})
 
+app.post('/register',(req, res)=>{
+    res.send({
+        message:`${req.body.account}: REGISTERED!`
     })
 })
 
