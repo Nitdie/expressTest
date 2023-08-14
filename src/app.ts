@@ -10,7 +10,7 @@ app.use(cors())
 
 app.get('/status',(req,res)=>{
     res.send({
-      message:'STATUS RESPONSs'
+      message:'STATUS RESPONS'
 
     })
 })
