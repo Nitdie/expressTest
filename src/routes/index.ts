@@ -1,5 +1,7 @@
 import express from "express";
 import db from "../database"
+import RegistrationController from "../controllers/RegistrationController";
+import LoginController from "../controllers/LoginController";
 
 const router = express.Router();
 router.get('/status',(req,res)=>{
@@ -8,19 +10,7 @@ router.get('/status',(req,res)=>{
     })
 })
 
-router.post('/register',(req, res)=>{
-    // res.send({
-    //     message:`${req.body.account}: REGISTERED!`
-    // })
-    const sql: string = "SELECT * FROM user"
-    db.query(sql,(error,result)=>{
-        if(error){
-            console.log("SQL QUERY ERROR")
-            res.send({state:1})
-        }
-        console.log("QUERIED")
-        res.send({data:result})
-    })
-})
+router.post('/register',RegistrationController.register)
+router.post('/login',LoginController.login)
 
 export = router
