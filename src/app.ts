@@ -2,30 +2,14 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import morgan from "morgan"
+import routes from "./routes"
 
 const app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json())
 app.use(cors())
 
-app.get('/status',(req,res)=>{
-    res.send({
-      message:'STATUS RESPONS'
-    })
-})
-
-app.post('/register',(req, res)=>{
-    res.send({
-        message:`${req.body.account}: REGISTERED!`
-    })
-})
-
-
-
-
-
-
-
+app.use(routes)
 
 const port = process.env.PORT || 8888
 app.listen(port)
